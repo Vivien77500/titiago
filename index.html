@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Montage des Visages</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+
+        img {
+            max-width: 100%;
+            max-height: 90vh;
+            display: none;
+            transition: opacity 0.5s ease;
+        }
+
+        img.active {
+            display: block;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <img id="photo1" src="https://raw.githubusercontent.com/Vivien77500/titiago/main/1.jpg" class="active">
+    <img id="photo2" src="https://raw.githubusercontent.com/Vivien77500/titiago/main/2.jpg">
+    <img id="photo3" src="https://raw.githubusercontent.com/Vivien77500/titiago/main/3.jpg">
+
+    <script>
+        const images = document.querySelectorAll('img');
+        let currentIndex = 0;
+
+        setInterval(() => {
+            images[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % images.length;
+            images[currentIndex].classList.add('active');
+        }, 500); // Changer d'image toutes les 0,5 secondes
+    </script>
+</body>
+</html>
